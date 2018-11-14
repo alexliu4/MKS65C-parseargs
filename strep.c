@@ -3,18 +3,38 @@
 #include <unistd.h>
 #include <string.h>
 
-int parse_args( char * line ){
-  char *s1 = line;
-  if (line){
-    printf("[%s]\n", strsep( &s1, " " ));
-    printf("[%s]\n", s1);
-    parse_args(s1);
+
+int counter(char * line){
+  int i, count;
+  for (i = 0, count = 0; line[i]; i++){
+    count += (line[i] == ' ');
   }
-  return 0;
+  return count;
+}
+
+char ** parse_args( char * line ){
+  char ** str = (char **) malloc(4);
+  char *s1 = line;
+  int i;
+  int count = counter(line);
+  for (i = 0; i <= count; i++){
+    //printf("[%s]\n", strsep( &s1, " " ));
+    str[0] = &s1;
+    //printf("[%s]\n", s1);
+  }
+  return str;
+}
+
+void printer(char ** line){
+  int i = 0;
+  while (line){
+    printf("%s\n", line[i]);
+    i++;
+  }
 }
 
 int main() {
   char line[100] = "ls Puneet Alex";
-  parse_args(line);
+  printer( parse_args(line) );
   return 0;
 }
