@@ -39,7 +39,7 @@ void printer(char ** line){
 int main(int argc, char * argv[]){
     char command[100];
     printf("Type in command: ");
-    // scanf("%s", command);
+    scanf("%s", command);
     // fgets(command, 20, stdin);
     char ** args = parse_args(command);
     printer( args );
