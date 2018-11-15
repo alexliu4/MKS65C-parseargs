@@ -20,7 +20,7 @@ char ** parse_args( char * line ){
   int i;
   //int flags = counter(line);
   //printf("Num of flags: %d\n", flags);
-  for (i = 0; i < 5; i++){
+  for (i = 0; i < 6; i++){
     // printf("DOING STRSEP [%s]\n", strsep( &s1, " " ));
     // printf("The Addition:%s\n", s1);
     str[i] = strsep( &s1, " ");
@@ -33,7 +33,7 @@ char ** parse_args( char * line ){
 void printer(char ** line){
   int i = 0;
   while (i < 6){
-    printf("The %dth element: %s\n",i , line[i]);
+    printf("The %dth element: %s\n", i, line[i]);
     i++;
   }
 }
@@ -50,5 +50,6 @@ int main(int argc, char * argv[]){
   // printf("ARGS[0]: %s\n", args[0]);
   printf ("Running execvp...\n");
   execvp(args[0], args);
+  free(args);
   return 0;
 }
