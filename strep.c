@@ -28,9 +28,8 @@ char ** parse_args( char * line ){
   return str;
 }
 
-void printer(char ** line){
+void printer(char ** line, int flags){
   int i = 0;
-  int flags = counter(line) + 1;
   while (i < flags){
     printf("The %dth element: %s\n",i , line[i]);
     i++;
@@ -43,7 +42,7 @@ int main(int argc, char * argv[]){
     scanf("%s", command);
     // fgets(command, 20, stdin);
     char ** args = parse_args(command);
-    printer( args );
+    printer(args, counter(command)+1);
     //executing the command (args[0]) with the flags (args)
     // printf("ARGS[0]: %s\n", args[0]);
     execvp(args[0], args);
