@@ -13,7 +13,7 @@ int counter(char * line){
 }
 
 char ** parse_args( char * line ){
-  char ** str = (char **) malloc(4);
+  char * [] str = malloc(sizeOf(char *) * 5); //max 5 args
   char *s1 = line;
   int i;
   int count = counter(line);
