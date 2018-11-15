@@ -15,16 +15,17 @@ int counter(char * line){
 }
 
 char ** parse_args( char * line ){
-  char ** str = malloc(sizeof(char *) * 6);
+  char ** str = malloc(sizeof(char *) * 5);
   char * s1 = line;
   int i;
   //int flags = counter(line);
   //printf("Num of flags: %d\n", flags);
-  for (i = 0; i < 5; i++){
+  while (s1){
     // printf("DOING STRSEP [%s]\n", strsep( &s1, " " ));
     // printf("The Addition:%s\n", s1);
     str[i] = strsep( &s1, " ");
     //printf("[%s]\n", s1);
+    i++;
   }
   return str;
 }
@@ -48,6 +49,6 @@ int main(int argc, char * argv[]){
   printer(args);
   //executing the command (args[0]) with the flags (args)
   // printf("ARGS[0]: %s\n", args[0]);
-  execvp(args[0], ++args);
+  execvp(args[0], args);
   return 0;
 }
