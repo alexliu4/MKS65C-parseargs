@@ -40,7 +40,7 @@ int main(int argc, char * argv[]){
     char command[100];
     printf("Type in command: ");
     // scanf("%s", command);
-    fgets(command, 100, stdin);
+    // fgets(command, 20, stdin);
     char ** args = parse_args(command);
     printer( args );
     //executing the command (args[0]) with the flags (args)
