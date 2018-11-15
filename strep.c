@@ -5,12 +5,13 @@
 
 //helper: returns # of args in line
 int counter(char * line){
-  int count = 0, len = strlen(line), i;
-  while (*(line++)) {
-    count += (*line == ' ');
-    i++;
+  int count = 1, len = strlen(line), i;
+  for (i=0; i<=len; i++){
+    if (line[i] ==' '){
+      count++;
+    }
   }
-  return count + 1;
+  return count;
 }
 
 char ** parse_args( char * line ){
