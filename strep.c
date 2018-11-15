@@ -15,7 +15,7 @@ int counter(char * line){
 }
 
 char ** parse_args( char * line ){
-  char ** str = malloc(sizeOf(char *) * 6);
+  char ** str = malloc(sizeof(char *) * 6);
   char * s1 = line;
   int i;
   //int flags = counter(line);
