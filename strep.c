@@ -17,7 +17,7 @@ int counter(char * line){
 char ** parse_args( char * line ){
   char ** str = malloc(sizeof(char *) * 5);
   char * s1 = line;
-  int i;
+  int i = 0;
   //int flags = counter(line);
   //printf("Num of flags: %d\n", flags);
   while (s1){
