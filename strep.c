@@ -26,7 +26,7 @@ char ** parse_args( char * line ){
     str[i] = strsep( &s1, " ");
     //printf("[%s]\n", s1);
   }
-  strcpy(str[i+1], &s1);
+  
   return str;
 }
 
