@@ -20,12 +20,13 @@ char ** parse_args( char * line ){
   int i;
   //int flags = counter(line);
   //printf("Num of flags: %d\n", flags);
-  for (i = 0; i < 6; i++){
+  for (i = 0; i < 5; i++){
     // printf("DOING STRSEP [%s]\n", strsep( &s1, " " ));
     // printf("The Addition:%s\n", s1);
     str[i] = strsep( &s1, " ");
     //printf("[%s]\n", s1);
   }
+  str[i+1] = &s1;
   return str;
 }
 
