@@ -18,8 +18,8 @@ char ** parse_args( char * line ){
   int i;
   int count = counter(line);
   for (i = 0; i <= count; i++){
-    //printf("[%s]\n", strsep( &s1, " " ));
-    str[0] = &s1;
+    printf("DOING STRSEP [%s]\n", strsep( &s1, " " ));
+    str[i] = s1;
     //printf("[%s]\n", s1);
   }
   return str;
@@ -27,8 +27,8 @@ char ** parse_args( char * line ){
 
 void printer(char ** line){
   int i = 0;
-  while (line){
-    printf("%s\n", line[i]);
+  while (i < 3){
+    printf("The %dth element: %s\n",i , line[i]);
     i++;
   }
 }
