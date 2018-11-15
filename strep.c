@@ -3,8 +3,6 @@
 #include <unistd.h>
 #include <string.h>
 
-int flags = 0;
-
 int counter(char * line){
   int i, count;
   for (i = 0, count = 0; line[i]; i++){
@@ -17,7 +15,7 @@ char ** parse_args( char * line ){
   char ** str = (char **) malloc(200);
   char *s1 = line;
   int i;
-  flags = counter(line) + 1;
+  int flags = counter(line) + 1;
   //printf("%d\n", flags);
   for (i = 0; i < flags; i++){
     // printf("DOING STRSEP [%s]\n", strsep( &s1, " " ));
@@ -30,6 +28,7 @@ char ** parse_args( char * line ){
 
 void printer(char ** line){
   int i = 0;
+  int flags = counter(line) + 1;
   while (i < flags){
     printf("The %dth element: %s\n",i , line[i]);
     i++;
