@@ -5,10 +5,9 @@
 
 //helper: returns # of args in line
 int counter(char * line){
-  int i = 0;
-  int count = 0;
-  while (line[i]) {
-    count += (line[i] == ' ');
+  int count = 0, len = strlen(line), i;
+  while (*(line++)) {
+    count += (*line == ' ');
     i++;
   }
   return count + 1;
