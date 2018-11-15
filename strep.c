@@ -29,6 +29,7 @@ char ** parse_args( char * line ){
   return str;
 }
 
+//helper: prints command + args
 void printer(char ** line){
   int i = 0;
   while (i < 6){
@@ -38,15 +39,15 @@ void printer(char ** line){
 }
 
 int main(int argc, char * argv[]){
-    char command[100] = "la -a -l";
-    printf("Type in command: %s\n", command);
-    //scanf("%s", command);
-    //printf("Num of args: %d\n", counter(command));
-    //fgets(command, 20, stdin);
-    char ** args = parse_args(command);
-    //printer(args);
-    //executing the command (args[0]) with the flags (args)
-    // printf("ARGS[0]: %s\n", args[0]);
-    execvp(args[0], args);
+  char command[100] = "la -a -l";
+  printf("Type in command: %s\n", command);
+  //scanf("%s", command);
+  //printf("Num of args: %d\n", counter(command));
+  //fgets(command, 20, stdin);
+  char ** args = parse_args(command);
+  printer(args);
+  //executing the command (args[0]) with the flags (args)
+  // printf("ARGS[0]: %s\n", args[0]);
+  execvp(args[0], ++args);
   return 0;
 }
