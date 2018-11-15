@@ -26,7 +26,6 @@ char ** parse_args( char * line ){
     str[i] = strsep( &s1, " ");
     //printf("[%s]\n", s1);
   }
-  
   return str;
 }
 
@@ -39,9 +38,9 @@ void printer(char ** line){
 }
 
 int main(int argc, char * argv[]){
-    char command[100];
-    printf("Type in command: ");
-    scanf("%s", command);
+    char command[100] = "la -a -l";
+    printf("Type in command: %s\n", command);
+    //scanf("%s", command);
     //printf("Num of args: %d\n", counter(command));
     //fgets(command, 20, stdin);
     char ** args = parse_args(command);
