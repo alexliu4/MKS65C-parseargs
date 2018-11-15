@@ -4,9 +4,11 @@
 #include <string.h>
 
 int counter(char * line){
-  int i, count;
-  for (i = 0, count = 0; line[i]; i++){
+  int i = 0;
+  int count = 0;
+  while (line[i] != NULL) {
     count += (line[i] == ' ');
+    i++;
   }
   return count;
 }
