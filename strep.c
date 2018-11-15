@@ -6,7 +6,7 @@
 int counter(char * line){
   int i = 0;
   int count = 0;
-  while (*line[i] != NULL) {
+  while (line[i]) {
     count += (line[i] == ' ');
     i++;
   }
