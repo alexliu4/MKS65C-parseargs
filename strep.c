@@ -19,7 +19,7 @@ char ** parse_args( char * line ){
   char *s1 = line;
   int i;
   int flags = counter(line);
-  printf("Num of flags: %d\n", flags);
+  //printf("Num of flags: %d\n", flags);
   for (i = 0; i < flags; i++){
     // printf("DOING STRSEP [%s]\n", strsep( &s1, " " ));
     // printf("The Addition:%s\n", s1);
@@ -41,6 +41,7 @@ int main(int argc, char * argv[]){
     char command[100];
     printf("Type in command: ");
     scanf("%s", command);
+    printf("Num of args: %d\n", counter(command));
     //fgets(command, 20, stdin);
     char ** args = parse_args(command);
     printer(args, counter(command));
