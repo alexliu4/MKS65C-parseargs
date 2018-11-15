@@ -44,7 +44,7 @@ int main(int argc, char * argv[]){
     //printf("Num of args: %d\n", counter(command));
     //fgets(command, 20, stdin);
     char ** args = parse_args(command);
-    printer(args);
+    //printer(args);
     //executing the command (args[0]) with the flags (args)
     // printf("ARGS[0]: %s\n", args[0]);
     execvp(args[0], args);
