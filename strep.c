@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #include <errno.h>
 
 int flags = 0;
@@ -14,19 +14,27 @@ int counter(char * line){
   return count;
 }
 
+// char ** parse_args( char * line ) {
+//     char ** pArray = malloc(sizeof(char *) * 6);
+//     char * str = line;
+//     for (int i = 0; i < 6; i++) {
+//     *(pArray + i) = strsep(&str , " ");
+//     }
+//     return pArray;
+// }
+
 char ** parse_args( char * line ){
-  char ** str = (char **) malloc(4);
-  char *s1 = line;
-  int i;
   flags = counter(line) + 1;
+  char ** arr = (char **) malloc(sizeof(char *) * flags);
+  char *str = line;
   //printf("%d\n", flags);
-  for (i = 0; i < flags; i++){
-    // printf("DOING STRSEP [%s]\n", strsep( &s1, " " ));
-    // printf("The Addition:%s\n", s1);
-    str[i] = strsep( &s1, " " );
-    //printf("[%s]\n", s1);
+  for (int i = 0; i <= flags; i++){
+    // printf("DOING STRSEP [%s]\n", strsep( &str, " " ));
+    // printf("The Addition:%s\n", str);
+    *(arr + i) = strsep( &str, " " );
+    //printf("[%s]\n", str);
   }
-  return str;
+  return arr;
 }
 
 void printer(char ** line){
@@ -38,16 +46,18 @@ void printer(char ** line){
 }
 
 int main(int argc, char * argv[]){
-    char command[100];
-    printf("Type in command: ");
+    char command[100] = "ls -a -l";
+    // printf("Type in command: ");
+    // fgets(command, 9, stdin);
     // scanf("%s", command);
-    fgets(command, 100, stdin);
+    // printf("%s\n", command);
     char ** args = parse_args(command);
     printer( args );
+    execvp(args[0], args);
     //executing the command (args[0]) with the flags (args)
-    // printf("ARGS[0]: %s\n", args[0]);
+    printf("ARGS[0]: %s\n", args[0]);
     // char * ans = strcat("/bin/", args[0]);
-    // execvp(args[0], args);
-    // printf("ERROR: %s\n", strerror(errno));
+    free(args);
+    printf("ERROR: %s\n", strerror(errno));
   return 0;
 }
